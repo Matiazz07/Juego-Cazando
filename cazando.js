@@ -11,6 +11,7 @@ let gatoY=(canvas.height/2-ALTO_GATO/2);
 let comidaX=0;
 let comidaY=0;
 let puntos=0;
+let tiempo=10;
 
 function graficarGato(){
     let colorG= "#5005ff";
@@ -22,6 +23,7 @@ function crearComida(){
 }
 
 function iniciarJuego(){
+    setInterval(restarTiempo,1000);
     graficarGato();
     crearComida();
 }
@@ -77,4 +79,9 @@ function aparecerComida(){
     comidaX=generarAleatorio(0,canvas.width-ANCHO_COMIDA);
     comidaY=generarAleatorio(0,canvas.height-ALTO_COMIDA);
     actualizarPantalla();
+}
+
+function restarTiempo(){
+    tiempo=tiempo-1;
+    mostrarEnSpan("tiempo",tiempo);
 }
