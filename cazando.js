@@ -10,6 +10,7 @@ let gatoX=canvas.width/2-(ANCHO_GATO/2);
 let gatoY=(canvas.height/2-ALTO_GATO/2);
 let comidaX=0;
 let comidaY=0;
+let puntos=0;
 
 function graficarGato(){
     let colorG= "#5005ff";
@@ -66,6 +67,14 @@ function limpiarCanvas(){
 
 function detectarColision(){
     if(comidaX+ANCHO_COMIDA>gatoX && comidaX<gatoX+ANCHO_GATO && comidaY+ALTO_COMIDA>gatoY && comidaY<gatoY+ALTO_GATO){
-        alert("YAAMMMMM!")
+        aparecerComida();
+        puntos=puntos+1;
+        mostrarEnSpan("puntos",puntos)
     }
+}
+
+function aparecerComida(){
+    comidaX=generarAleatorio(0,canvas.width-ANCHO_COMIDA);
+    comidaY=generarAleatorio(0,canvas.height-ALTO_COMIDA);
+    actualizarPantalla();
 }
