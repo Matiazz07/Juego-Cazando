@@ -12,6 +12,7 @@ let comidaX=0;
 let comidaY=0;
 let puntos=0;
 let tiempo=10;
+let intervalo;
 
 function graficarGato(){
     let colorG= "#5005ff";
@@ -23,7 +24,7 @@ function crearComida(){
 }
 
 function iniciarJuego(){
-    setInterval(restarTiempo,1000);
+    intervalo=setInterval(restarTiempo,1000);
     graficarGato();
     crearComida();
 }
@@ -72,6 +73,9 @@ function detectarColision(){
         aparecerComida();
         puntos=puntos+1;
         mostrarEnSpan("puntos",puntos)
+    }if(puntos==6){
+        alert("GANADOR")
+        reiniciar();
     }
 }
 
@@ -84,4 +88,24 @@ function aparecerComida(){
 function restarTiempo(){
     tiempo=tiempo-1;
     mostrarEnSpan("tiempo",tiempo);
+    if(tiempo<0){
+        tiempo=0;
+        mostrarEnSpan("tiempo",tiempo);
+        clearInterval(intervalo);
+        alert("GAME OVER");
+        reiniciar();
+    }
+}
+
+function reiniciar() {
+    clearInterval(intervalo);
+    puntos = 0;
+    tiempo = 10;
+    gatoX = canvas.width / 2 - (ANCHO_GATO / 2);
+    gatoY = canvas.height / 2 - (ALTO_GATO / 2);
+    mostrarEnSpan("puntos", puntos);
+    mostrarEnSpan("tiempo", tiempo);
+    aparecerComida();
+    actualizarPantalla();
+    intervalo = setInterval(restarTiempo, 1000);
 }
