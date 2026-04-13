@@ -46,6 +46,16 @@ function moverDerecha(){
     actualizarPantalla();
 }
 
+function moverArriba(){
+    gatoY=gatoY-10;
+    actualizarPantalla();
+}
+
+function moverAbajo(){
+    gatoY=gatoY+10;
+    actualizarPantalla();
+}
+
 function limpiarCanvas(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
