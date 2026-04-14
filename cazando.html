@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juego Cazando</title>
+  <title>Juego Cazando - Edición Arcade</title>
   <link rel="stylesheet" href="cazando.css"/>
   <script src="utils.js"></script>
 </head>
@@ -11,27 +11,38 @@
   
   <div class="game-container">
     <header>
-      <h1>Juego Cazando</h1>
-      <p class="autor">Por: Matias Villota</p>
+      <h1>CAZANDO</h1>
+      <p class="autor">INSERT COIN - MATIAS VILLOTA</p>
     </header>
 
     <div class="panel">
       <div class="marcador">
-        <span>Puntos: <span id="puntos" class="valor">0</span></span>
+        <span>SCORE: <span id="puntos" class="valor">0</span></span>
       </div>
       <div class="marcador">
-        <span>Tiempo: <span id="tiempo" class="valor">10</span></span>
+        <span>TIME: <span id="tiempo" class="valor">10</span></span>
       </div>
     </div>
 
-    <canvas id="areaJuego" width="500" height="500"></canvas>
+    <div class="canvas-wrapper">
+      <canvas id="areaJuego" width="500" height="500"></canvas>
+      
+      <div id="pantallaFinal" class="modal oculto">
+        <h2 id="tituloModal">GAME OVER</h2>
+        <button class="btn-retro" onclick="reiniciar(); ocultarModal();">INSERT COIN TO RETRY</button>
+      </div>
+    </div>
+
+    <div class="menu-acciones">
+        <button class="btn-retro btn-reiniciar" onclick="reiniciar();">REINICIAR PARTIDA</button>
+    </div>
 
     <div class="controles-dpad">
-      <button class="btn-arriba" onclick="moverArriba();">⬆</button>
+      <button class="btn-dir btn-arriba" onclick="moverArriba();">⬆</button>
       <div class="fila-medio">
-        <button onclick="moverIzquierda();">⬅</button>
-        <button onclick="moverAbajo();">⬇</button>
-        <button onclick="moverDerecha();">➡</button>
+        <button class="btn-dir" onclick="moverIzquierda();">⬅</button>
+        <button class="btn-dir" onclick="moverAbajo();">⬇</button>
+        <button class="btn-dir" onclick="moverDerecha();">➡</button>
       </div>
     </div>
 
@@ -39,5 +50,14 @@
   </div>
 
   <script src="cazando.js"></script>
+  <script>
+    function mostrarModal(mensaje) {
+        document.getElementById('tituloModal').innerText = mensaje;
+        document.getElementById('pantallaFinal').classList.remove('oculto');
+    }
+    function ocultarModal() {
+        document.getElementById('pantallaFinal').classList.add('oculto');
+    }
+  </script>
 </body>
 </html>
