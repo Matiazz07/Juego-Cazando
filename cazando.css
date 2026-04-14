@@ -1,42 +1,111 @@
+/* Importar una fuente retro para el título y otra limpia para el texto */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;800&display=swap');
+
 body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  margin-bottom: 5px;
-}
-
-.panel {
-  margin: 15px 0;
-  font-size: 18px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2c3e50; /* Fondo oscuro moderno */
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #ecf0f1;
 }
 
+.game-container {
+  background: #34495e;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Press Start 2P', cursive; /* Toque arcade */
+  color: #f1c40f;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-shadow: 3px 3px #e67e22;
+}
+
+.autor {
+  color: #bdc3c7;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Panel de Puntuación estilo "Display" */
+.panel {
+  display: flex;
+  justify-content: space-around;
+  background: #1abc9c;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #2c3e50;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.valor {
+  background: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-left: 5px;
+  display: inline-block;
+  min-width: 30px;
+}
+
+/* Lienzo del juego */
 canvas {
-  background: white;
-  border: 2px solid black;
+  background: #ecf0f1;
+  border: 4px solid #2c3e50;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.controles {
-  margin-top: 20px;
+/* Sistema de Control (D-Pad) usando Flexbox */
+.controles-dpad {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.fila-medio {
+  display: flex;
+  gap: 10px;
 }
 
 button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0 6px #c0392b;
+  transition: all 0.1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Efecto al hacer clic en el botón (se hunde) */
+button:active {
+  transform: translateY(6px);
+  box-shadow: 0 0px #c0392b;
 }
 
 #mensaje {
   font-size: 20px;
   font-weight: bold;
-  color: darkred;
+  color: #e74c3c;
   margin-top: 15px;
+  min-height: 24px; /* Evita que la interfaz salte cuando el mensaje está vacío */
 }
