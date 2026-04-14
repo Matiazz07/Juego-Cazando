@@ -93,8 +93,6 @@ function restarTiempo(){
         tiempo=0;
         mostrarEnSpan("tiempo",tiempo);
         clearInterval(intervalo);
-        alert("GAME OVER");
-        reiniciar();
     }
 }
 
