@@ -1,42 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@700&display=swap');
+
 body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  margin-bottom: 5px;
-}
-
-.panel {
-  margin: 15px 0;
-  font-size: 18px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  min-height: 100vh;
+  /* Fondo morado pastel muy suave */
+  background-color: #f3e8ff; 
+  background-image: radial-gradient(#d8b4fe 2px, transparent 2px);
+  background-size: 30px 30px;
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 20px;
+  color: #4c1d95;
+}
+
+.game-container {
+  /* Contenedor principal en un morado un poco más sólido */
+  background: #e9d5ff;
+  padding: 30px;
+  border: 4px solid #c084fc;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.2);
+  text-align: center;
+}
+
+header h1 {
+  color: #7e22ce;
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  /* Sombra de texto para dar profundidad retro */
+  text-shadow: 3px 3px 0px #d8b4fe; 
+}
+
+.autor {
+  color: #9333ea;
+  font-size: 10px;
+  margin-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Panel de Score */
+.panel {
+  display: flex;
+  justify-content: space-around;
+  background: #fdf4ff;
+  padding: 15px;
+  border: 3px solid #c084fc;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #6b21a8;
+  box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
+}
+
+.valor {
+  color: #a855f7;
+}
+
+/* Contenedor y Canvas */
+.canvas-wrapper {
+  position: relative; 
+  display: inline-block;
 }
 
 canvas {
-  background: white;
-  border: 2px solid black;
+  background: #faf5ff; /* Blanco con un levísimo tinte morado */
+  border: 4px solid #a855f7;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(107, 33, 168, 0.15);
 }
 
-.controles {
+/* El Modal de Game Over */
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fondo oscuro purpurino semitransparente */
+  background: rgba(59, 7, 100, 0.85); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.modal.oculto {
+  display: none;
+}
+
+.modal h2 {
+  color: #f3e8ff;
+  font-size: 32px;
+  text-shadow: 3px 3px 0 #a855f7;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+/* --- MEJORA DEL BOTÓN REINICIAR --- */
+.menu-acciones {
   margin-top: 20px;
 }
 
-button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
+.btn-reiniciar {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  background: linear-gradient(180deg, #d8b4fe 0%, #c084fc 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 25px; /* Forma de píldora */
+  padding: 12px 24px;
   cursor: pointer;
+  box-shadow: 0 6px 0 #9333ea, 0 10px 10px rgba(147, 51, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.1s ease;
+}
+
+.btn-reiniciar:hover {
+  background: linear-gradient(180deg, #e9d5ff 0%, #d8b4fe 100%);
+}
+
+.btn-reiniciar:active {
+  transform: translateY(6px); /* El botón se hunde */
+  box-shadow: 0 0px 0 #9333ea, 0 2px 5px rgba(147, 51, 234, 0.3);
+}
+
+/* Estilos para el botón dentro del Modal de Game Over */
+.btn-retro {
+  font-family: 'Press Start 2P', cursive;
+  background: #fdf4ff;
+  color: #9333ea;
+  border: 3px solid #9333ea;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 4px 4px 0 #9333ea;
+}
+
+.btn-retro:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0 #9333ea;
+}
+
+/* Controles D-Pad */
+.controles-dpad {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.fila-medio {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-dir {
+  width: 55px;
+  height: 55px;
+  font-size: 22px;
+  background: #d8b4fe;
+  color: #4c1d95;
+  border: 3px solid #a855f7;
+  border-bottom: 7px solid #9333ea; /* Efecto 3D chunky */
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s;
+}
+
+.btn-dir:active {
+  border-bottom: 3px solid #9333ea;
+  transform: translateY(4px);
 }
 
 #mensaje {
-  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
   font-weight: bold;
-  color: darkred;
+  color: #7e22ce;
   margin-top: 15px;
+  min-height: 24px; 
 }
