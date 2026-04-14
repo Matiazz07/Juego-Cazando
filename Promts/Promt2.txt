@@ -1,0 +1,2 @@
+En base al contecto en el que estamos, desarrolando un codigo sobre el juego cazando, agrega un background modificando unicamente el archivo css, y dejame el espacio para yo poner el archive
+ 

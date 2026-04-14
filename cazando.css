@@ -5,24 +5,31 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* Fondo morado pastel muy suave */
-  background-color: #f3e8ff; 
-  background-image: radial-gradient(#d8b4fe 2px, transparent 2px);
-  background-size: 30px 30px;
   font-family: 'Press Start 2P', cursive;
   margin: 0;
   padding: 20px;
   color: #4c1d95;
+  
+  /* --- INICIO DEL CAMBIO DEL FONDO --- */
+  /* Reemplaza 'background.gif' con el nombre exacto de tu archivo */
+  background-image: url('backgroundCazando.gif'); 
+  background-color: #f3e8ff; /* Color de respaldo por si el GIF tarda en cargar */
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  /* --- FIN DEL CAMBIO --- */
 }
 
 .game-container {
-  /* Contenedor principal en un morado un poco más sólido */
-  background: #e9d5ff;
+  /* Contenedor principal con transparencia y desenfoque para que destaque del GIF */
+  background: rgba(233, 213, 255, 0.85); /* Equivalente a #e9d5ff con opacidad */
   padding: 30px;
   border: 4px solid #c084fc;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.2);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
   text-align: center;
+  backdrop-filter: blur(6px); /* Efecto cristal para no perder legibilidad */
 }
 
 header h1 {
