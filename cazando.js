@@ -94,7 +94,7 @@ function restarTiempo(){
         mostrarEnSpan("tiempo",tiempo);
         clearInterval(intervalo);
     }
-}
+} 
 
 function reiniciar() {
     clearInterval(intervalo);
