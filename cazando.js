@@ -73,7 +73,7 @@ function detectarColision(){
         aparecerComida();
         puntos=puntos+1;
         mostrarEnSpan("puntos",puntos)
-        sumarTiempo(puntos);
+        tiempo=15;
     }if(puntos==6){
         alert("GANADOR")
         reiniciar();
