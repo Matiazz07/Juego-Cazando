@@ -1,5 +1,9 @@
 Actua como
-un programador con experiencia, en este programa el cual trata sobre un juego
+un programador con experiencia,tutor, explícame y dame el código paso a paso de lo que debo cambiar
+
+en este juego para que, en lugar de dibujar un rectángulo que se mueve con las flechas,
+
+se utilice una imagen PNG de un gato, en este programa el cual trata sobre un juego
 llamado cazando, este consiste en que un gato se mueve por un canvas para
 comer,  en base a este codigo y contexto
 cambia y ayudame a mejorar este juego, sin embargo no debes cambiar el archivo
