@@ -11,7 +11,7 @@ let gatoY=(canvas.height/2-ALTO_GATO/2);
 let comidaX=0;
 let comidaY=0;
 let puntos=0;
-let tiempo=10;
+let tiempo=15;
 let intervalo;
 
 function graficarGato(){
