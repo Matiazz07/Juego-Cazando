@@ -112,7 +112,8 @@ function reiniciar() {
 
 function sumarTiempo(punto){
     if(punto>0){
-        tiempo=tiempo+5;
+        tiempoMaximo=tiempoMaximo-1;
+        tiempo=tiempoMaximo;
          mostrarEnSpan("tiempo",tiempo);
     }
 }
